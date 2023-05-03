@@ -1,7 +1,8 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import {auth} from './config-fire'
+import { collection, addDoc } from "firebase/firestore";
+import {auth,db} from './config-fire'
 
-export const googleAuth = ()=>{ 
+export const googleAuth = (router)=>{ 
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
   .then((result) => {
@@ -11,6 +12,11 @@ export const googleAuth = ()=>{
     // The signed-in user info.
     const user = result.user;
     console.log(user,'user')
+    
+    if(user.emailVerified){
+       router.push('/Muro');
+    }
+    
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
@@ -24,4 +30,16 @@ export const googleAuth = ()=>{
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+}
+
+{/*Para crear la NOTA*/}
+
+export const note = async(notas)=>{
+const docRef = await addDoc(collection(db, "users"), {
+  conten:notas,
+});
+
+console.log("Document written with ID: ", docRef.id);
+}catch(e) {
+console.error("Error adding document: ", e);
 }

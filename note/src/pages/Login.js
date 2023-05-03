@@ -1,13 +1,32 @@
 //import react de manera global
-import * as React from "react";
+//import * as React from "react";
+import React from 'react';
+import { useRouter } from 'next/router'
 import{googleAuth} from './funct-fire.js'
 
+
 const Login =()=>{
+    const router=useRouter();
+    function signIn(){;
+        console.log('ggggg');
+        googleAuth(router);
+       // router.push('/Muro');routers declara en la funcion google auth
+    };
+    
     return (
-        <div>
-        <p>autentificación con google</p>
-        <button onClick={googleAuth}>autentificación con google</button>        
+        
+        <div className='contenedor'>
+        <div className='cajaLogin'>
+        <img className='img' alt='fondo' src={'img/cel-img.png'}
+        />
         </div>
+        <h1 className='title'>LIBRETA DE NOTAS</h1>
+        <button className='buttonGoogle' onClick={signIn}>Iniciar sesión con google</button>        
+        </div>
+
+        
     )
+
+
 }
 export default Login;

@@ -1,0 +1,23 @@
+{
+    margin:0;
+    padding:0;
+}
+:root{
+    --color-boton:hsl(201, 37%, 55%);
+    --padding:15px 32px;
+    --color-caja:linear-gradient(rgb(25, 85, 122), rgb(192, 229, 255)) ;
+    --border-radius:25px;
+    --font-family:Times;
+    --border:5px ridge #1a1c1ddf;
+    --color-fondo:linear-gradient(rgba(239, 239, 245, 0.19), rgb(192, 229, 255));
+    --border-comen:5px solid #070707;
+    --font-size:30px;
+    }
+    .note{
+        width: 400px;
+        height: 400px;
+        background:var(--color-caja);
+        border-radius: var(--border-radius);
+        font-size: var(--font-size);
+
+    }
