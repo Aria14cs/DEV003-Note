@@ -1,0 +1,29 @@
+ {
+  margin: 0%;
+  padding: 0%;
+}
+:root {
+  --color-boton: hsl(201, 37%, 55%);
+  --padding: 15px 32px;
+  --color-caja: linear-gradient(rgb(8, 9, 9), rgb(192, 229, 255));
+  --border-radius: 25px;
+  --font-family: Times;
+  --border: 5px ridge #1a1c1ddf;
+  --fondo: linear-gradient(rgba(195, 151, 200, 0.19), rgb(10, 242, 203));
+  --border-comen: 5px solid #070707;
+  --font-size: 30px;
+}
+
+body {
+  background: var(--fondo);
+  /* width:100%;
+        height:100%;  */
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .body {
+    display: inline-block;
+  }
+}

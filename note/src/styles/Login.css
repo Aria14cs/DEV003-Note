@@ -8,24 +8,21 @@
     --color-caja:linear-gradient(rgb(41, 162, 237), rgb(192, 229, 255)) ;
     --border-radius:25px;
     --font-family:Times;
-    --border:5px ridge #1a1c1ddf;
-    --color-fondo:linear-gradient(rgba(239, 239, 245, 0.19), rgb(192, 229, 255));
+    --border:5px ridge #052258df;
+    --color-fondo:linear-gradient(rgb(4, 4, 87), rgb(192, 229, 255));
     --border-comen:5px solid #070707;
     --font-size:30px;
     }
 
 .contenedor{
-    background:#faf8f8;
+    background:var(--color-fondo);
     width: 450px;
     height: 700px;
     /* position: absolute; */
-     display: block;
+    /* display: block; */
     margin-top: 0;
     border:var(--border);
     border-radius: var(--border-radius);
-    /* justify-content: center;  */
-    background-position: center;
-    
 }
 
 .title{
@@ -38,10 +35,10 @@
 .cajaLogin{
 
 background:rgba(16, 206, 218, 0.44);
-width: 443px;
+width: 450px;
 height: 300px;
 position: absolute; 
-border-radius: var(--border-radius);
+
 
 
 }
@@ -49,7 +46,7 @@ border-radius: var(--border-radius);
 .buttonGoogle{
  padding: var(--padding);
  background: var(--color-fondo);
- margin-top: 200px;
+ margin-top: 300px;
  margin-left: 120px;
  /* display: flex;
  justify-content: center; */
