@@ -1,8 +1,22 @@
 import { note, leerNote } from "./funct-fire.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Muro() {
+  
+   { /*Variables de estado  */}
   const [nota, setNota] = useState("");
+  const [notas, setNotas] = useState([]);
+  
+   { /* funcion es para renderizar las notas creadas*/}
+  useEffect(() => {
+    leerNote()
+      .then((notas) => {
+        setNotas(notas);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [notas]);
 
   return (
     <div>
@@ -14,18 +28,17 @@ export default function Muro() {
           value={nota}
           placeholder="Ingresar notas"
         ></input>
+        <button className="buttonGuardar" onClick={() => note(nota)}></button> 
       </div>
-      <button className="guardar" onClick={() => note(nota)}>
-        Guardar
-      </button>
-
-      <div className="subContenedor">
-        <p
-          className="notaLeer"
-          onChange={(e) => leerNote(e.target.value)}
-          value={nota}
-        ></p>
+      
+      <div className="cardNotas"> 
+        {notas.map((not) => (
+          <div key={not.id}>
+            <p className="contNote">{not.contenido} </p>
+          </div>
+        ))}
+        </div>
       </div>
-    </div>
+    
   );
 }

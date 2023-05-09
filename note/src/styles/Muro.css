@@ -1,45 +1,60 @@
-{
-    margin:0;
-    padding:0;
+ {
+  margin: 0;
+  padding: 0;
 }
-:root{
-    --color-boton:hsl(201, 37%, 55%);
-    --padding:15px 32px;
-    --color-caja:linear-gradient(rgb(25, 85, 122), rgb(192, 229, 255)) ;
-    --border-radius:25px;
-    --font-family:Times;
-    --border:5px ridge #1a1c1ddf;
-    --color-fondo:linear-gradient(rgba(239, 239, 245, 0.19), rgb(192, 229, 255));
-    --border-comen:5px solid #070707;
-    --font-size:30px;
-    }
-    .subContenedorMuro{
-       
+:root {
+  --color-boton: hsl(201, 37%, 55%);
+  --padding: 15px 32px;
+  --color-caja: linear-gradient(rgb(25, 85, 122), rgb(192, 229, 255));
+  --border-radius: 25px;
+  --font-family: Times;
+  --border: 5px ridge #1a1c1ddf;
+  --color-fondo: linear-gradient(rgba(239, 239, 245, 0.19), rgb(192, 229, 255));
+  --border-comen: 5px solid #070707;
+  --font-size: 30px;
+}
+.cardNotas {
+  background: #273f47;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+.note {
+  width: 500px;
+  height: 200px;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size);
+}
+.subContenedorMuro {
+  display: flex; 
+  height: 300px;
+  font-family: cursive;
+  text-align: center;
+  justify-content: center;
+}
 
-    }
-    .note{
-        width: 500px;
-        height:200px;
-        border-radius: var(--border-radius);
-        font-size: var(--font-size); 
-       
-    }
+.contNote {
+  width: 400px;
+  background: #f7f5f5;
+  border-radius: var(--border-radius);
+  height: 200px;
+}
+/* @media  */
 
-    .notaLeer{
-        width: 500px;
-        background: #f7f5f5;
-        border-radius: var(--border-radius);
-        height: 200px;
-       display: flex;
-          
-            }
-            /* @media  */
-                    
-        
-    
-    .titleMuro{
-        margin-top: 100px;
-        text-align: center;
-
-    }
-    
+.titleMuro {
+  margin-top: 100px;
+  text-align: center;
+}
+.buttonGuardar {
+  background-image: url(https://us.123rf.com/450wm/valentint/valentint1510/valentint151003354/46503997-guardar-icono-bot%C3%B3n-de-internet-sobre-fondo-blanco.jpg?ver=6);
+  background-size: cover;
+  margin-top: 200px;
+  width: 80px;
+  height: 80px;
+  left: 750px;
+  position: absolute;
+  border-radius: 50%;
+}
