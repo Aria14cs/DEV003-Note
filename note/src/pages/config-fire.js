@@ -1,26 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-
-
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+//import { getAnalytics } from "firebase/analytics";//
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
-    apiKey: "AIzaSyD7UPj_qip9g6LBAdg_BzEmlDsdgFH5J4o",
-    authDomain: "project-note-9d4df.firebaseapp.com",
-    projectId: "project-note-9d4df",
-    storageBucket: "project-note-9d4df.appspot.com",
-    messagingSenderId: "1081447957126",
-    appId: "1:1081447957126:web:1df7c85200d7a8a7ddc707",
-    measurementId: "G-CD7S37W7CB"
-  };
+  apiKey: "AIzaSyBGVOZP5cIKDBnBV95DH1cMs36Bi0EOpPw",
+  authDomain: "project-lab-notes-70808.firebaseapp.com",
+  projectId: "project-lab-notes-70808",
+  storageBucket: "project-lab-notes-70808.appspot.com",
+  messagingSenderId: "787443379286",
+  appId: "1:787443379286:web:475d4dab8c327d64dadff7",
+  measurementId: "G-YB22ZN0MB7"
+};
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
 export const auth = getAuth(app);
+//export const analytics = getAnalytics(app);//
 export const db = getFirestore(app);

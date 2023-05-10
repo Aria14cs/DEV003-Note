@@ -55,6 +55,8 @@
   width: 80px;
   height: 80px;
   left: 750px;
-  position: absolute;
+  /* position: absolute; */
+
   border-radius: 50%;
+  display: flex;
 }

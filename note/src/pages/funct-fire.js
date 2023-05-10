@@ -1,5 +1,5 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { collection, addDoc,getDocs } from "firebase/firestore";
+import { collection, addDoc,getDocs,doc, deleteDoc } from "firebase/firestore";
 import {auth,db} from './config-fire'
 
 export const googleAuth = (router)=>{ 
@@ -33,7 +33,6 @@ export const googleAuth = (router)=>{
 }
 
 {/*Para crear la NOTA*/}
-
 export const note = async(nota)=>{
   try {
     const docRef = await addDoc(collection(db, "notas"), {
@@ -44,7 +43,8 @@ export const note = async(nota)=>{
     console.error("Error adding document: ", e);
   }
 }
-{/*Para crear la leer la nota*/}
+
+{/*Para la leer la nota*/}
  export const leerNote=async()=>{
 const querySnapshot = await getDocs(collection(db, "notas"));
 const note=[];
@@ -54,4 +54,18 @@ querySnapshot.forEach((doc) => {
   return note;
  }
 
- {/*Funcion para editar*/}
+ {/*Funcion para Eliminar Note*/}
+ export const eliminarNote = (id) => {
+  // console.log("=>", id)
+  deleteDoc(doc(db, 'notas', id));
+};
+
+export function getNote(id) {
+  return db
+    .collection("notas")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      return { id: doc.id, contenido: doc.data().contenido };
+    });
+}
