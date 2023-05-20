@@ -1,10 +1,11 @@
-import { note, leerNote, eliminarNote, getNote } from "./funct-fire.js";
+import { note, leerNote, eliminarNote, getNote, updateNotas } from "./funct-fire.js";
 import { useEffect, useState } from "react";
 
 export default function Muro() {
   // Definir estados iniciales
   const [nota, setNota] = useState("");
   const [notas, setNotas] = useState([]);
+  const [notasActual, setNotasActual] = useState([]);
 
   // Función para cargar las notas desde la base de datos
   const cargarNotas = () => {
@@ -56,6 +57,17 @@ export default function Muro() {
       });
   };
 
+  // Función para actualizar una nota en la base de datos
+  const actualizarNota = (id, newContenido) => {
+    updateNotas(id, newContenido)
+      .then(() => {
+        cargarNotas();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // Renderizar el componente
   return (
     <div>
@@ -67,25 +79,26 @@ export default function Muro() {
           value={nota}
           placeholder="Ingresar notas"
         ></input>
-        <button className="buttonGuardar" onClick={() => guardarNota()}>
-          Guardar
-        </button>
+        <button className="buttonGuardar" onClick={() => guardarNota()}></button>
       </div>
 
       <div className="cardNotas">
         {notas.map((nota) => (
           <div key={nota.id}>
-            <p
-              className="contNote"
-              onClick={() => cargarNota(nota.id)}
-            >
+            <p className="contNote" onClick={() => cargarNota(nota.id)}>
               {nota.contenido}
             </p>
+            <button className="buttonEliminar" onClick={() => eliminarNota(nota.id)}></button>
             <button
-              className="buttonEliminar"
-              onClick={() => eliminarNota(nota.id)}
+              className="buttonActualizar"
+              onClick={() => {
+                const contenido = prompt("Ingrese el nuevo contenido de la nota", nota.contenido);
+                if (contenido !== null) {
+                  actualizarNota(nota.id, contenido);
+                }
+              }}
             >
-              Eliminar
+              Editar nota
             </button>
           </div>
         ))}

@@ -1,67 +1,63 @@
-{
-    margin:0;
-    padding:0;
+ {
+  margin: 0;
+  padding: 0;
 }
-:root{
-    --color-boton:hsl(201, 37%, 55%);
-    --padding:15px 32px;
-    --color-caja:linear-gradient(rgb(41, 162, 237), rgb(192, 229, 255)) ;
-    --border-radius:25px;
-    --font-family:Times;
-    --border:5px ridge #052258df;
-    --color-fondo:linear-gradient(rgb(4, 4, 87), rgb(192, 229, 255));
-    --border-comen:5px solid #070707;
-    --font-size:30px;
-    }
-
-.contenedor{
-    background:var(--color-fondo);
-    width: 450px;
-    height: 700px;
-    /* position: absolute; */
-    /* display: block; */
-    margin-top: 0;
-    border:var(--border);
-    border-radius: var(--border-radius);
+:root {
+  --color-boton: hsla(242, 88%, 19%, 0.933);
+  --padding: 15px 32px;
+  --color-caja: linear-gradient(rgb(41, 162, 237), rgb(192, 229, 255));
+  --border-radius: 25px;
+  --font-family: Times;
+  --border: 5px ridge #052258df;
+  --color-fondo: linear-gradient(rgb(8, 41, 170), rgb(18, 64, 96));
+  --border-comen: 5px solid #070707;
+  --font-size: 30px;
 }
 
-.title{
-
-    text-align: center;
-    color: #090909;
-    margin-top: 300px;
-  
-}
-.cajaLogin{
-
-background:rgba(16, 206, 218, 0.44);
-width: 450px;
-height: 300px;
-position: absolute; 
-
-
-
+.contenedor {
+  background: var(--color-fondo);
+  width: 450px;
+  height: 700px;
+  /* position: absolute; */
+  /* display: block; */
+  margin-top: 0;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  font-size: 120%; /* aumento el tamaño de la fuente */
+  font-weight: bold; /* la pongo en negrita */
+  padding-bottom: 10px; /* espacio inferior del texto */
+  justify-content: center;
 }
 
-.buttonGoogle{
- padding: var(--padding);
- background: var(--color-fondo);
- margin-top: 300px;
- margin-left: 120px;
- /* display: flex;
- justify-content: center; */
- 
-
+.title {
+  text-align: center;
+  color: #090909;
+  margin-top: 300px;
 }
 
-.img{
-   
-    width:260px;
-    height:220px;  
-    border-radius: var(--border-radius);
-    position: absolute; 
-    margin-top:20px ;
-    margin-left: 100px;
-  
+.cajaLogin {
+  background: rgba(16, 206, 218, 0.44);
+  width: 450px;
+  height: 300px;
+  position: absolute;
+}
 
+.buttonGoogle {
+  padding: var(--padding);
+  background:#275395;
+  margin-top: 200px;
+  position: absolute;
+  left: 38%;
+  font-size: 100%; /* aumento el tamaño de la fuente */
+  font-weight: bold; /* la pongo en negrita */
+  padding-bottom: 10px; /* espacio inferior del texto */
+}
+
+.img {
+  width: 260px;
+  height: 220px;
+  border-radius: var(--border-radius);
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 100px;
 }

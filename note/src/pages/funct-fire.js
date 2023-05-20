@@ -1,5 +1,5 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { collection, addDoc,getDocs,doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc,getDocs,doc, deleteDoc, updateDoc,query, orderBy  } from "firebase/firestore";
 import {auth,db} from './config-fire'
 
 export const googleAuth = (router)=>{ 
@@ -53,19 +53,41 @@ querySnapshot.forEach((doc) => {
 });
   return note;
  }
-
+ 
+export const getNote = (id) => {
+  // Accediendo a la colección 'notas' y buscando la nota//
+  return db.collection("notas").doc(id).get()
+    .then((doc) => {
+      // Si se encuentra el documento, se devuelve un objeto con  ID, contenido
+      return {
+        id: doc.id,
+        contenido: doc.data().contenido
+      };
+    })
+    .catch((error) => {
+      // Si ocurre un error,mensaje en la consola
+      console.log('Error')
+      throw new Error(`Error al obtener la nota con id ${id}: ${error}` );
+    })
+  }
  {/*Funcion para Eliminar Note*/}
  export const eliminarNote = (id) => {
   // console.log("=>", id)
   deleteDoc(doc(db, 'notas', id));
 };
 
-export function getNote(id) {
-  return db
-    .collection("notas")
-    .doc(id)
-    .get()
-    .then((doc) => {
-      return { id: doc.id, contenido: doc.data().contenido };
-    });
+ {/*Funcion para actualizar  Note*/}
+ export const updateNotas = (id, newContenido) => {
+  return db.collection("notas").doc(id).update({
+    contenido: newContenido
+  });
 }
+
+
+
+//  {/*Funcion para ORNDENAR Note*/}
+// export const ordenar =()=>{
+//  const q = query(citiesRef, orderBy("state"), orderBy("population", "desc"));
+// }
+
+
